@@ -1,0 +1,19 @@
+name: Forfun
+type: theme
+description: 'Forfun Bootstrap 5 SubTheme.'
+core_version_requirement: ^8.9 || ^9
+base theme: bootstrap5
+
+libraries:
+  - forfun/global-styling
+
+regions:
+  header: Header
+  nav_branding: 'Navigation branding region'
+  nav_main: 'Main navigation region'
+  nav_additional: 'Additional navigation region (eg search form, social icons, etc)'
+  breadcrumb: Breadcrumbs
+  content: 'Main content'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer: Footer

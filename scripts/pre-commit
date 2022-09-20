@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+
+# Define colours.
+R='\033[0;31m'
+G='\033[0;32m'
+NC='\033[0m'
+E=0
+
+
+# ////////// PHP, CSS or JS ////////// #
+printf "PHP Code Sniffer...\n"
+
+# List of extensions checked - add to these to add new file types.
+EXTENSIONS=( php module inc install test profile theme css scss js info txt md yml )
+
+# Build list from git diff
+LIST=$( git diff --name-only --cached --diff-filter=ACMR -- "${EXTENSIONS[@]/#/*.}" )
+
+if [ -z "$LIST" ]; then
+  printf ${G}"No type files to check.\n\n"${NC};
+else
+  # Implode EXTENSIONS.
+  IFS=, eval 'EXTENSION_LIST="${EXTENSIONS[*]}"'
+  printf "Sniffing files via PHP Code Sniffer...\n";
+  vendor/squizlabs/php_codesniffer/bin/phpcs -n --standard=Drupal --extensions=${EXTENSION_LIST} $LIST;
+  RESULT=$?
+
+  if [[ $RESULT == 0 && $?==0 ]]; then
+    printf ${G}"PHPCS Drupal validation success - proceeding to commit.\n\n"${NC}
+  else
+    printf ${R}"PHPCS Drupal validation failed, please fix all issues highlighted above before trying to commit.\n\n"${NC};
+    E=1
+  fi
+
+  vendor/squizlabs/php_codesniffer/bin/phpcs -n --standard=DrupalPractice --extensions=${EXTENSION_LIST} $LIST;
+  RESULT=$?
+
+  if [[ $RESULT == 0 && $?==0 ]]; then
+    printf ${G}"PHPCS Drupal Practice validation success - proceeding to commit.\n\n"${NC}
+  else
+    printf ${R}"PHPCS Drupal Practice validation failed, please fix all issues highlighted above before trying to commit.\n\n"${NC};
+    E=1
+  fi
+fi
+
+
+# /////////////// TWIG /////////////// #
+
+printf "TWIG Code Sniffer...\n"
+
+# List of extensions checked - add to these to add new file types.
+TWIG_EXTENSIONS=( twig )
+
+# Build list from git diff
+TWIG_LIST=$( git diff --name-only --cached --diff-filter=ACMR -- "${TWIG_EXTENSIONS[@]/#/*.}" )
+
+if [ -z "$TWIG_LIST" ]; then
+  printf ${G}"No type files to check.\n\n"${NC};
+else
+  printf "Sniffing files via TWIG Code Sniffer...\n"
+  vendor/friendsoftwig/twigcs/bin/twigcs -t 1 $TWIG_LIST;
+  RESULT=$?
+
+  if [[ $RESULT == 0 && $?==0 ]]; then
+    printf ${G}"TWIGCS validation success - proceeding to commit.\n\n"${NC};
+  else
+    printf ${R}"TWIGCS validation failed, please fix all issues highlighted above before trying to commit.\n\n"${NC};
+    E=1
+  fi
+fi
+
+
+# /////////// Drupal check /////////// #
+printf "Drupal Check...\n"
+
+# List of extensions checked - add to these to add new file types.
+DRUPAL_EXTENSIONS=( php module inc install test profile theme info )
+
+# Build list from git diff
+DRUPAL_LIST=$( git diff --name-only --cached --diff-filter=ACMR -- "${DRUPAL_EXTENSIONS[@]/#/*.}" )
+
+if [ -z "$DRUPAL_LIST" ]; then
+  printf ${G}"No type files to check.\n\n"${NC};
+else
+  printf "Sniffing files via Drupal Check...\n"
+  vendor/mglaman/drupal-check/drupal-check -ad $DRUPAL_LIST;
+  RESULT=$?
+
+  if [[ $RESULT == 0 && $?==0 ]]; then
+    printf ${G}"Drupal Check validation success - proceeding to commit.\n\n"${NC};
+  else
+    printf ${R}"Drupal Check validation failed, please fix all issues highlighted above before trying to commit.\n\n"${NC};
+    E=1
+  fi
+fi
+
+
+# Return the status of Code Sniffer.
+exit ${E}

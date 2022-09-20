@@ -1,0 +1,34 @@
+@import '../global/fonts';
+@import '../global/default-variables';
+
+@mixin flexbox() {
+  display: flex;
+}
+@mixin flex_column_center() {
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin flex_space_between() {
+  justify-content: space-between;
+}
+
+@mixin container() {
+  max-width: $container_desktop_inner;
+  margin: 0 auto;
+}
+
+@mixin default_button() {
+  background: $tjx-text-color;
+  font-family: 'GTWalsheimPro';
+  font-size: 16px;
+  line-height: 20px;
+  color: $evergreen-primary-white;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 15px 15px 9px;
+  text-decoration: none;
+  text-align: center;
+  min-width: 125px;
+}

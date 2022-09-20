@@ -1,0 +1,11 @@
+@import "./base/general";
+@import "./global/default-variables";
+
+// Global style
+@import "./global/global-style";
+// Fonts.
+@import "./global/fonts";
+
+// Mixins.
+@import "./global/mixins";
+@import "../templates/**/*.scss";

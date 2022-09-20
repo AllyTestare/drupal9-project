@@ -1,0 +1,34 @@
+client: TestClient
+application: ntw
+repository: 'AllyTestare/practice-d9-Private.git'
+framework: drupal
+environments:
+  dev: 'env/dev'
+  test: 'env/test'
+  uat: 'env/uat'
+  rc: 'env/rc'
+  prod: 'env/prod'
+sites:
+  - 'practicecom'
+  - 'practicero'
+themes:
+  install:
+    - 'forfun'
+  build:
+    - 'forfun'
+build:
+  application:
+    node: 'master'
+    install: "$(which composer2) install"
+    dependencies:
+      - 'config'
+      - 'web'
+      - 'vendor'
+      - 'load.environment.php'
+  theme:
+    nodejs: 'nodejs-16'
+    install: "npm install"
+    build: "npm run gulp:build"
+    artifacts:
+      - 'gulpfile.js'
+      - 'node_modules'

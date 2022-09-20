@@ -1,0 +1,56 @@
+@import "../global/default-variables";
+@import '../global/mixins';
+@import '../global/fonts';
+
+@import "../global/default-variables";
+@import '../global/mixins';
+@import '../global/fonts';
+
+h1,
+h1.lobster,
+h2,
+h2.lobster,
+h3.lobster {
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 66px;
+  color: $evergreen-primary-black;
+}
+h1.lobster,
+h2.lobster,
+h3.lobster{
+  font-family: Lobster;
+  font-weight: 400;
+}
+h2 {
+  font-size: 44px;
+  line-height: 46px;
+}
+
+h3 {
+  font-size: 22px;
+  line-height: 31px;
+}
+h1.lobster {
+  font-weight: 400;
+}
+p,
+p.small,
+p.smaller
+{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: $evergreen-primary-black;
+}
+
+p.small {
+  font-size: 14px;
+  line-height: 23px;
+}
+
+p.smaller {
+  font-size: 12px;
+  line-height: 16px;
+}

@@ -1,0 +1,50 @@
+@import "../global/default-variables";
+@import '../global/mixins';
+@import '../global/fonts';
+
+body {
+  overflow-x: hidden;
+}
+.node__content {
+  margin-top: 0;
+}
+#main-content {
+  padding-top: 300px;
+  @media (max-width: $container_desktop_mid) {
+    padding-top: 80px;
+  }
+}
+.container {
+  @include container;
+  @media (max-width: $container_desktop_mid) {
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+  .row {
+    @media (max-width: $container_desktop_mid) {
+      margin: 0;
+    }
+    .main-content {
+      &.col {
+        @media (max-width: $container_desktop_mid) {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+.user-logged-in {
+  header {
+    margin-top: 78px;
+    @media (max-width: $container_desktop_mid) {
+      margin-top: 39px;
+    }
+    .navbar {
+      .menu-wrapper {
+        @media (max-width: $container_desktop_mid) {
+          top: 119px;
+        }
+      }
+    }
+  }
+}
