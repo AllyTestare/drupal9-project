@@ -1,0 +1,7 @@
+manage event registrations:
+  title: Manage event registrations
+  description: Allow users to manage event registrations
+
+administer add department:
+  title: 'Add new department'
+  description: Allow managers to add new departments

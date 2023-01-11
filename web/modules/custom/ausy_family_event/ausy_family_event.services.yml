@@ -1,0 +1,9 @@
+services:
+  ausy_family_event.permissions:
+    class: Drupal\ausy_family_event\Permissions
+    tags:
+      - { name: kernel.event_listener, event: 'user.role.grant', method: 'roleGrantPermission' }
+  access_check.ausy_family_event.add_department_form:
+    class: Drupal\ausy_family_event\Access\AddDepartmentAccessCheck
+    tags:
+      - { name: access_check, applies_to: _route }

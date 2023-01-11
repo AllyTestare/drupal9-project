@@ -1,0 +1,16 @@
+ausy_family_event.form:
+  path: '/registration/{department}'
+  defaults:
+    _form: '\Drupal\ausy_family_event\Form\EventRegistrationForm'
+    _title: 'Event Registration Form'
+  requirements:
+    _permission: 'access content'
+    department: '[a-z]+' # Only allow lowercase letters.
+
+ausy_family_event.add_department:
+  path: '/admin/config/add-department'
+  defaults:
+    _form: '\Drupal\ausy_family_event\Form\AddDepartmentForm'
+    _title: 'Add Department'
+  requirements:
+    _permission: 'access administration pages'

@@ -1,0 +1,12 @@
+name: Event Registration
+description: Collects event registrations for the annual company event.
+type: module
+package: Custom
+core_version_requirement: '^9.0'
+plugins:
+  block:
+    registration_count_block:
+      label: 'Event registration count block'
+      class: Drupal\ausy_family_event\Plugin\Block\RegistrationCountBlock
+      tags:
+        - { name: 'event', description: 'Registration count block' }

@@ -1,0 +1,21 @@
+uuid: 51aa9f34-b454-4168-9c1c-883c69d957a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_one_plus
+    - node.type.registration
+  module:
+    - options
+id: node.registration.field_one_plus
+field_name: field_one_plus
+entity_type: node
+bundle: registration
+label: 'One plus'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

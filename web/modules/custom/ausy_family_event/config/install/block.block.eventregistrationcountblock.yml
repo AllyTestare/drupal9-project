@@ -1,0 +1,28 @@
+uuid: 6ca58c3d-2c58-4b2b-94ca-367bcc6b738a
+langcode: en
+status: true
+dependencies:
+  module:
+    - ausy_family_event
+    - language
+  theme:
+    - forfun
+id: eventregistrationcountblock
+theme: forfun
+region: content
+weight: 0
+provider: null
+plugin: registration_count_block
+settings:
+  id: registration_count_block
+  label: 'Event registration count block'
+  label_display: visible
+  provider: ausy_family_event
+visibility:
+  language:
+    id: language
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'
+    langcodes:
+      en: en

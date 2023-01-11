@@ -1,6 +1,6 @@
 client: TestClient
 application: ntw
-repository: 'AllyTestare/practice-d9-Private.git'
+repository: 'AllyTestare/drupal9-project.git'
 framework: drupal
 environments:
   dev: 'env/dev'
@@ -10,7 +10,6 @@ environments:
   prod: 'env/prod'
 sites:
   - 'practicecom'
-  - 'practicero'
 themes:
   install:
     - 'forfun'

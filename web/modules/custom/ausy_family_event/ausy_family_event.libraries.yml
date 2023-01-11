@@ -1,0 +1,10 @@
+form:
+  css:
+    theme:
+      css/ausy_family_event.css: {}
+  js:
+    js/ausy_family_event.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/drupalSettings

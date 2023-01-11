@@ -1,0 +1,19 @@
+uuid: e0b32e53-eaf4-48af-8be3-a133ca3e1be2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email_address
+    - node.type.registration
+id: node.registration.field_email_address
+field_name: field_email_address
+entity_type: node
+bundle: registration
+label: 'Email address'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

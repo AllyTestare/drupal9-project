@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Ausy family event module file to proceess all required variables.
+ */
+
+/**
+ * Implements hook_block_configure().
+ */
+function ausy_family_event_block_configure($delta = '') {
+  if ($delta == 'registration_count_block') {
+    return t('There are no configuration options for this block.');
+  }
+}

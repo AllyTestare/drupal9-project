@@ -1,0 +1,21 @@
+uuid: a19052d7-a8d5-4645-97ef-c0f26bc54828
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_name_of_the_employee
+    - node.type.registration
+  module:
+    - text
+id: node.registration.field_name_of_the_employee
+field_name: field_name_of_the_employee
+entity_type: node
+bundle: registration
+label: 'Name of the employee'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text
